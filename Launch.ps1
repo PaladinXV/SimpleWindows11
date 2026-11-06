@@ -122,25 +122,6 @@ $SwsBranch = 'main'
             Start-Sleep -Milliseconds 400
         }
 
-        $text2 = 'Detecting System Configuration...'
-        $ready = $false
-        $deadline = (Get-Date).AddMinutes(3)
-        for ($i = 0; -not $ready -and (Get-Date) -lt $deadline; $i++) {
-            Show-Status $text2 'run' $frames[$i % $frames.Count]
-            $ready = [bool](Get-Process -Name powershell -ErrorAction SilentlyContinue | Where-Object { $_.MainWindowTitle -eq 'Simple Windows 11 Tool' })
-            if ($ready) { break }
-            if ($i % 20 -eq 19 -and $script:proc.HasExited) {
-                $alive = $false
-                try {
-                    $alive = [bool](Get-CimInstance Win32_Process -Filter "Name='powershell.exe'" -ErrorAction Stop | Where-Object { $_.CommandLine -like '*Main.ps1*' })
-                } catch { $alive = $true }
-                if (-not $alive) { break }
-            }
-            Start-Sleep -Milliseconds 100
-        }
-        Show-Status $text2 $(if ($ready) { 'ok' } else { 'fail' })
-        Write-Host ""
-
         if ($script:proc) { try { $script:proc | Wait-Process } catch { } }
 
         $isAdmin = ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
