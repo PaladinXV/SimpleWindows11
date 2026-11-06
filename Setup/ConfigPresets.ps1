@@ -1,0 +1,92 @@
+$RecommendedPreset = @(
+        'Launch File Explorer to "This PC"'
+        'Disable "Show recently used files"'
+        'Disable "Show frequently used folders"'
+        'Disable "Show Cloud files in File Explorer"'
+        'Enable "Show File Extensions"'
+        'Enable "File Explorer Compact Mode"'
+        'Show "More Details" during "File Transfer"'
+        'Enable "Dark mode"'
+        'Disable "Lock screen facts & tips"'
+        'Disable "Windows Spotlight on the lock screen"'
+        'Disable "Show recently added apps in Start"'
+        'Disable "Show recently used files in the Start Menu"'
+        'Disable "Recommended section"'
+        'Disable "Bing Search in the Start Menu"'
+        @{ Name = 'All Apps View'; Option = 'List' }
+        'Hide "Task view button"'
+        'Disable "Widgets"'
+        @{ Name = 'Taskbar Search Box'; Option = 'Hidden' }
+        @{ Name = 'Task bar Icon alignment'; Option = 'Left' }
+        'Disable "Windows Tips & Suggestions"'
+        'Disable "Finish setting up this device"'
+        'Disable "Personalized offers"'
+        'Disable "Allow websites to access my language list"'
+        'Disable "Improve Start and search results"'
+        'Disable "Recommendations and offers in Settings"'
+        'Disable "Advertising ID"'
+        'Disable "Custom inking and typing dictionary"'
+        'Disable "Send optional diagnostic data" (Telemetry)'
+        'Disable "Improve inking and typing"'
+        @{ Name = 'Feedback Frequency'; Option = 'Never' }
+        'Disable "Search history"'
+        'Disable "Show search highlights"'
+        'Disable "Search my accounts - Microsoft account"'
+        'Disable "Search my accounts - Work or School account"'
+        'Disable "Share across devices"'
+        'Disable "Cross-device resume"'
+        'Disable "Recall"'
+        'Disable "Resume"'
+        'Disable "Consumer Features"'
+        'Disable "Snap Layouts Flyout"'
+        'Hide "App tabs when snapping/alt+tab"'
+        'Disable "Snap Suggestions"'
+        'Hide "Security/Defender icon from startup/task bar"'
+        'Disable "Autocorrect misspelled words"'
+        'Disable "Highlight misspelled words"'
+        'Disable "Typing insights"'
+        'Disable "Sticky Keys" shortcut'
+        'Disable "Mouse acceleration"'
+        'Set "Communication Volume - Do Nothing"'
+        'Enable "Right-click classic context menu"'
+        'Disable "Background Mode"'
+        'Hide "Edge first run experience"'
+        'Disable "Startup Boost"'
+        'Disable "Fast Startup"'
+    )
+
+$AggressiveExtras = @(
+    'Disable "Transparency effects"'
+    'Disable "Notifications"'
+    'Disable "Show account-related notifications"'
+    'Disable "Notification Sounds"'
+    'Disable "Notifications on the lock screen"'
+    'Disable "VOIP/Reminders on the lock screen"'
+    'Disable "Show Notifications in Settings"'
+    'Disable "Apps running in the background"'
+    'Enable "End Task" in the Task bar'
+    'Enable "Long file paths"'
+    'Disable "Storage Sense"'
+    'Disable "Autoplay"'
+    'Disable "Automatic Sample Submission"'
+    'Disable "Delivery Optimization"'
+    @{ Name = 'Delay Feature Updates'; Option = '90 days' }
+    @{ Name = 'Delay Security Updates'; Option = '4 days' }
+    @{ Name = 'Hibernate'; Option = 'Disabled' }
+    'Disable "Controller guide button"'
+    'Disable "Controller opening Game Bar"'
+    'Disable "Xbox Mode"'
+    'Disable "Compatibility Appraiser"'
+    'Disable "Autochk Proxy"'
+    'Disable "CEIP Consolidator"'
+    'Disable "CEIP USB Data"'
+    'Disable "Disk Diagnostic Data Collector"'
+    'Disable "Feedback (DmClient)"'
+    'Disable "Error Reporting Queue"'
+    'Disable "Recommended Troubleshooting Scanner"'
+)
+
+$ConfigPresets = [ordered]@{
+    'Recommended' = $RecommendedPreset
+    'Aggressive'  = @($RecommendedPreset) + @($AggressiveExtras)
+}
